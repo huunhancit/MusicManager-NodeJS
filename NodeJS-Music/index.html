@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music IPortal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="app/images/icons/music.ico"/>
+    <script src="app/bower_components/requirejs/require.js" data-main="app/scripts/main.js"></script>
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="app/bower_components/angular-bootstrap/ui-bootstrap-csp.css"/>
+    <link rel="stylesheet" href="app/bower_components/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" href="app/css/music.css"/>
+
+</head>
+<body ng-controller="AppCtrl">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default" style="padding: 10px;border-radius: 0px;background-color: #d633ff;">
+                <div class="container-fluid">
+                    <!--<div class="navbar-header" style="width: 100%;">
+                        <a class="navbar-brand" href="#">
+                            <img alt="Brand" src="app/images/icons/music.svg" width="30px" height="30px">
+                        </a>
+                        <div class="title">Music Manager - Dinh Huu Nhan</div>
+                        <form class="navbar-form navbar-right form-inline" role="language">
+                            <div class="form-group">
+                                <label for="language">Language: </label>
+                                <select class="form-control input-sm" id="language" style="width: 150px;">
+                                    <option>English</option>
+                                    <option>France</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>-->
+                    <div class="navbar-header" style="width: 50%;">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img alt="Brand" src="app/images/icons/music.svg" width="30px" height="30px">
+                        </a>
+                        <div class="title">{{ 'MUSIC_PANEL' | translate }} - dhnhan@tma.com.vn</div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <form class="navbar-form navbar-right form-inline" role="language">
+                            <div class="form-group">
+                                <label for="language">{{ 'LANGUAGE' | translate }}: </label>
+                                <select class="form-control input-sm" id="language" style="width: 150px;" ng-model="lang" ng-options="lang.name for lang in langs" ng-change="changeLang()">
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!--<nav class="navbar navbar-default menu">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img alt="Brand" src="app/images/icons/music.svg" width="20px" height="20px">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><span class="txt-menu">Business</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">My Vital</a></li>
+                                    <li><a href="#">My Service</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">My Dashboard</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><span class="txt-menu">Network</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Net Ops</a></li>
+                                    <li><a href="#">Java Agent</a></li>
+                                    <li><a href="#">Server Agent</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><span class="txt-menu">Report</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">My Report</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><span class="txt-menu">Real Time</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Real Time</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false"><span class="txt-menu">Admin</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Network</a></li>
+                                    <li><a href="#">Discovery</a></li>
+                                    <li><a href="#">SNMP Profile</a></li>
+                                    <li><a href="#">Collector</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right form-inline" role="language">
+                            <div class="form-group">
+                                <label for="language">Language: </label>
+                                <select class="form-control input-sm" id="language" style="width: 150px;">
+                                    <option>English</option>
+                                    <option>France</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </nav>-->
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-controller="MusicCtrl">
+            <div ng-include="'app/scripts/music/templates/music.html'">
+            </div>
+        </div>
+    </div>
+    <div class="footer navbar-fixed-bottom ms-footer">
+        <i>Music Manager 2015 &copy; Đinh Hữu Nhân. All Rights Reserved. </i>
+    </div>
+</div>
+</body>
+</html>
