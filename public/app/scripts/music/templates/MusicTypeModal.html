@@ -1,0 +1,39 @@
+<md-dialog aria-label="Music"  ng-cloak >
+    <form style="width: 500px;" name="musicTypeForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h4> New Music Type</h4>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="close()">
+                    <md-icon md-svg-src="app/images/icons/close.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block">
+                    <label>ID</label>
+                    <input ng-model="musicType.ID" type="number" disabled>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Music type name</label>
+                    <input ng-model="musicType.NAME" type="text" required>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Description</label>
+                    <textarea ng-model="musicType.DESCRIPTION" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="close()" style="margin-right:20px;" md-no-ink class="md-primary">
+                Cancel
+            </md-button>
+            <md-button ng-click="save()" md-no-ink class="md-primary" ng-disabled="musicTypeForm.$invalid">
+                Save
+            </md-button>
+
+        </md-dialog-actions>
+    </form>
+</md-dialog>
